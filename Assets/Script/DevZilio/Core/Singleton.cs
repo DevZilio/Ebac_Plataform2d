@@ -14,7 +14,7 @@ namespace DevZilio.Core.Singleton
             if (Instance == null)
                 Instance = GetComponent<T>();
             else
-                Destroy(gameobject);
+                Destroy(gameObject);
         }
 
     }
