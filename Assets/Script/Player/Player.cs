@@ -16,6 +16,12 @@ public class Player : MonoBehaviour
     [Header("Animation Setup")]
     public float jumpScaleY = 1.5f;
     public float jumpScaleX = 0.7f;
+    public float landingScaleY = 0.7f;
+    public float landingScaleX = 1.5f;
+
+    public bool falling;
+    public float fallingThreshold;
+
     public float animationDuration = 0.3f;
     public Ease ease = Ease.OutBack;
 
@@ -23,8 +29,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        checkIfPlayerIsFalling();
         HandleJump();
         HandleMoviment();
+        
     }
 
 
@@ -63,6 +71,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             myRigidbody.velocity = Vector2.up * forceJump;
+            myRigidbody.transform.localScale = Vector2.one; //Reseta a escala
+
+            DOTween.Kill(myRigidbody.transform); //Mata qualquer animacao que estiver em acao antes de comecar outra
+
             HandleScaleJump();
         }
 
@@ -74,4 +86,49 @@ public class Player : MonoBehaviour
         myRigidbody.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
         myRigidbody.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
     }
+
+
+
+
+
+/*private void OnCollisionEnter(Collision collision) {
+    if(collision.gameObject.CompareTag("Ground") && falling)
+    {
+        handleScaleLanding();
+    }
+}
+
+private void handleScaleLanding()
+{
+        myRigidbody.transform.DOScaleY(landingScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+        myRigidbody.transform.DOScaleX(landingScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+
+}*/
+
+private void checkIfPlayerIsFalling(){
+    if(myRigidbody.velocity.y < fallingThreshold)
+    {
+        falling = true;
+    }
+    else
+    {
+        falling = false;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
