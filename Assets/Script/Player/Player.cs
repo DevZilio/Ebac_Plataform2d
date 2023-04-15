@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
     private void HandleMoviment()
     {
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.LeftShift))
             _currentSpeed = speedRun;
         else
             _currentSpeed = speed;
