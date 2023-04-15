@@ -92,6 +92,9 @@ public class Player : MonoBehaviour
 
 
 /*private void OnCollisionEnter(Collision collision) {
+
+    var ground = collision.GetComponent<myRigybody>();
+
     if(collision.gameObject.CompareTag("Ground") && falling)
     {
         handleScaleLanding();
