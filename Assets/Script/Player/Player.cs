@@ -19,6 +19,11 @@ public class Player : MonoBehaviour
     public float landingScaleY = 0.7f;
     public float landingScaleX = 1.5f;
 
+    [Header("Animation Player")]
+    public string boolRun = "Run";
+    public Animator animator;
+    public float playerSwipeDuration = .1f;
+
     public bool falling;
     public float fallingThreshold;
 
@@ -32,27 +37,47 @@ public class Player : MonoBehaviour
         checkIfPlayerIsFalling();
         HandleJump();
         HandleMoviment();
-        
+
     }
 
 
     private void HandleMoviment()
     {
         if (Input.GetKey(KeyCode.LeftShift))
+        {
             _currentSpeed = speedRun;
+            animator.speed = 1.5f;
+        }
         else
+        {
             _currentSpeed = speed;
+            animator.speed = 1;
+        }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             // myRigidbody.MovePosition(myRigidbody.position - velocity * Time.deltaTime);
             myRigidbody.velocity = new Vector2(-_currentSpeed, myRigidbody.velocity.y);
+            if (myRigidbody.transform.localScale.x != -1)
+            {
+                myRigidbody.transform.DOScaleX(-1, playerSwipeDuration);
+            }
+            animator.SetBool(boolRun, true);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
 
             // myR  igidbody.MovePosition(myRigidbody.position + velocity * Time.deltaTime);
             myRigidbody.velocity = new Vector2(_currentSpeed, myRigidbody.velocity.y);
+            if (myRigidbody.transform.localScale.x != 1)
+            {
+                myRigidbody.transform.DOScaleX(1, playerSwipeDuration);
+            }
+            animator.SetBool(boolRun, true);
+        }
+        else
+        {
+            animator.SetBool(boolRun, false);
         }
 
         if (myRigidbody.velocity.x > 0)
@@ -91,33 +116,34 @@ public class Player : MonoBehaviour
 
 
 
-/*private void OnCollisionEnter(Collision collision) {
+    /*private void OnCollisionEnter(Collision collision) {
 
-    var ground = collision.GetComponent<myRigybody>();
+        var ground = collision.GetComponent<myRigybody>();
 
-    if(collision.gameObject.CompareTag("Ground") && falling)
-    {
-        handleScaleLanding();
+        if(collision.gameObject.CompareTag("Ground") && falling)
+        {
+            handleScaleLanding();
+        }
     }
-}
 
-private void handleScaleLanding()
-{
-        myRigidbody.transform.DOScaleY(landingScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-        myRigidbody.transform.DOScaleX(landingScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-
-}*/
-
-private void checkIfPlayerIsFalling(){
-    if(myRigidbody.velocity.y < fallingThreshold)
+    private void handleScaleLanding()
     {
-        falling = true;
-    }
-    else
+            myRigidbody.transform.DOScaleY(landingScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+            myRigidbody.transform.DOScaleX(landingScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+
+    }*/
+
+    private void checkIfPlayerIsFalling()
     {
-        falling = false;
+        if (myRigidbody.velocity.y < fallingThreshold)
+        {
+            falling = true;
+        }
+        else
+        {
+            falling = false;
+        }
     }
-}
 
 
 
