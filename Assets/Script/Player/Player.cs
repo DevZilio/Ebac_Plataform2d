@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     [Header("Animation Player")]
     public string boolRun = "Run";
+    public string boolJump = "Jump";
     public Animator animator;
     public float playerSwipeDuration = .1f;
 
@@ -96,11 +97,12 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             myRigidbody.velocity = Vector2.up * forceJump;
-            myRigidbody.transform.localScale = Vector2.one; //Reseta a escala
+            
+            // myRigidbody.transform.localScale = Vector2.one; //Reseta a escala
 
-            DOTween.Kill(myRigidbody.transform); //Mata qualquer animacao que estiver em acao antes de comecar outra
+            // DOTween.Kill(myRigidbody.transform); //Mata qualquer animacao que estiver em acao antes de comecar outra
 
-            HandleScaleJump();
+            // HandleScaleJump();
         }
 
 
@@ -108,8 +110,8 @@ public class Player : MonoBehaviour
 
     public void HandleScaleJump()
     {
-        myRigidbody.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-        myRigidbody.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+        // myRigidbody.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+        // myRigidbody.transform.DOScaleX(jumpScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
     }
 
 
@@ -128,8 +130,10 @@ public class Player : MonoBehaviour
 
     private void handleScaleLanding()
     {
+        
             myRigidbody.transform.DOScaleY(landingScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
             myRigidbody.transform.DOScaleX(landingScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+
 
     }*/
 
@@ -138,10 +142,14 @@ public class Player : MonoBehaviour
         if (myRigidbody.velocity.y < fallingThreshold)
         {
             falling = true;
+            animator.SetBool(boolJump, false);
+            Debug.Log("F TRUE");
         }
-        else
+        else if (myRigidbody.velocity.y > fallingThreshold)
         {
             falling = false;
+            animator.SetBool(boolJump, true);
+            Debug.Log("F FALSE");
         }
     }
 
