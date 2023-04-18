@@ -143,13 +143,13 @@ public class Player : MonoBehaviour
         {
             falling = true;
             animator.SetBool(boolJump, false);
-            Debug.Log("F TRUE");
+            // Debug.Log("F TRUE");
         }
         else if (myRigidbody.velocity.y > fallingThreshold)
         {
             falling = false;
             animator.SetBool(boolJump, true);
-            Debug.Log("F FALSE");
+            // Debug.Log("F FALSE");
         }
     }
 

@@ -8,7 +8,7 @@ public class ItemManager : MonoBehaviour
 public int coins;
 
 //Singleton
-public static ItemManager Instance;
+public static ItemManager Instance; 
 
 private void Awake() {
     if (Instance == null)

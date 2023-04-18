@@ -18,7 +18,7 @@ public class ItemCollectableBase : MonoBehaviour
     {
         Debug.Log("Collect");
         OnCollect();
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
     }
 
 
