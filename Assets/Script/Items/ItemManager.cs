@@ -1,22 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DevZilio.Core.Singleton;
 
-public class ItemManager : MonoBehaviour
+public class ItemManager : Singleton<ItemManager>
 {
 
 public int coins;
 
-//Singleton
-public static ItemManager Instance; 
-
-private void Awake() {
-    if (Instance == null)
-    Instance = this;
-
-    else
-    Destroy(gameObject);
-}
 
 private void Start()
 {
