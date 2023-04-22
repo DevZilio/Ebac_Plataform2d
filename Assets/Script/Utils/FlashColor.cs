@@ -24,14 +24,6 @@ public class FlashColor : MonoBehaviour
     }
 
 
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Flash();
-        }
-    }
-
     public void Flash()
     {
         //codigo para evitar o DOTween executar antes de ele mesmo terminar
@@ -40,9 +32,10 @@ public class FlashColor : MonoBehaviour
             _currentTween.Kill();
             spriteRenderers.ForEach(i => i.color = Color.white);
         }
+        
         foreach (var s in spriteRenderers)
         {
-            s.DOColor(color, duration).SetLoops(2, LoopType.Yoyo);
+           _currentTween = s.DOColor(color, duration).SetLoops(2, LoopType.Yoyo);
         }
     }
 }

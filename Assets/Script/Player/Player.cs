@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     [Header("Animation Player")]
     public string boolRun = "Run";
     public string boolJump = "Jump";
+    public string triggerDeath = "Death";
     public Animator animator;
     public float playerSwipeDuration = .1f;
 
@@ -32,6 +33,26 @@ public class Player : MonoBehaviour
     public Ease ease = Ease.OutBack;
 
     private float _currentSpeed;
+
+    public HealthBase healthBase;
+
+
+    private void Awake() {
+        if(healthBase != null)
+        {
+            healthBase.OnKill += OnPlayerKill;
+        }
+    }
+
+private void OnPlayerKill()
+{
+            healthBase.OnKill -= OnPlayerKill;
+
+            animator.SetTrigger(triggerDeath);
+
+
+}
+
 
     private void Update()
     {
@@ -152,6 +173,12 @@ public class Player : MonoBehaviour
             // Debug.Log("F FALSE");
         }
     }
+
+public void DestroyMe()
+{
+    Destroy(gameObject);
+}
+
 
 
 

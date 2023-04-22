@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthBase : MonoBehaviour
 {
+   public Action OnKill;
+   
    public int startLife = 10;
 
    public bool destroyOnKill = false;
@@ -13,6 +16,8 @@ public class HealthBase : MonoBehaviour
    private bool _isDead = false;
 
    public FlashColor flashColor;
+
+
 
    private void Awake() {
        Init();
@@ -37,6 +42,7 @@ public class HealthBase : MonoBehaviour
        if (_currentLife <= 0)
        {
            Kill();
+
        }
 
        if(flashColor != null)
@@ -53,5 +59,7 @@ public class HealthBase : MonoBehaviour
        {
           Destroy(gameObject, delayToKill); 
        }
+          OnKill?.Invoke();
+          //Usar o ? é o mesmo que fazer if(Onkill != null)
    }
 }
