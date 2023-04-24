@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
 
-    [Header("Speed Setup")]
+    [Header("Moviment Setup")]
     public Vector2 friction = new Vector2(.1f, 0);
     public float speed;
     public float speedRun;
@@ -37,21 +37,22 @@ public class Player : MonoBehaviour
     public HealthBase healthBase;
 
 
-    private void Awake() {
-        if(healthBase != null)
+    private void Awake()
+    {
+        if (healthBase != null)
         {
             healthBase.OnKill += OnPlayerKill;
         }
     }
 
-private void OnPlayerKill()
-{
-            healthBase.OnKill -= OnPlayerKill;
+    private void OnPlayerKill()
+    {
+        healthBase.OnKill -= OnPlayerKill;
 
-            animator.SetTrigger(triggerDeath);
+        animator.SetTrigger(triggerDeath);
 
 
-}
+    }
 
 
     private void Update()
@@ -59,6 +60,7 @@ private void OnPlayerKill()
         checkIfPlayerIsFalling();
         HandleJump();
         HandleMoviment();
+        
 
     }
 
@@ -117,8 +119,11 @@ private void OnPlayerKill()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            myRigidbody.velocity = Vector2.up * forceJump;
             
+                myRigidbody.velocity = Vector2.up * forceJump;
+               
+            
+
             // myRigidbody.transform.localScale = Vector2.one; //Reseta a escala
 
             // DOTween.Kill(myRigidbody.transform); //Mata qualquer animacao que estiver em acao antes de comecar outra
@@ -129,6 +134,8 @@ private void OnPlayerKill()
 
     }
 
+
+
     public void HandleScaleJump()
     {
         // myRigidbody.transform.DOScaleY(jumpScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
@@ -137,18 +144,19 @@ private void OnPlayerKill()
 
 
 
+ /*private void OnCollisionEnter(Collision collision) {
 
+        var ground = collision.FindWithTag(groundTag);
 
-    /*private void OnCollisionEnter(Collision collision) {
-
-        var ground = collision.GetComponent<myRigybody>();
-
-        if(collision.gameObject.CompareTag("Ground") && falling)
+        if(collision.gameObject.CompareTag(groundTag))
         {
-            handleScaleLanding();
+            jumpN = 0;
+            Debug.Log("TouchGround");
         }
-    }
+    }*/
 
+   
+/*
     private void handleScaleLanding()
     {
         
@@ -174,11 +182,17 @@ private void OnPlayerKill()
         }
     }
 
-public void DestroyMe()
-{
-    Destroy(gameObject);
-}
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
+    }
 
+
+
+    // private bool IsGrounded()
+    // {
+    //     return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    // }
 
 
 
