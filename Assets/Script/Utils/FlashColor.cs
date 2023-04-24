@@ -8,7 +8,7 @@ public class FlashColor : MonoBehaviour
 {
     public List<SpriteRenderer> spriteRenderers;
     public Color color = Color.red;
-    public float duration = .3f;
+    public float duration = .2f;
 
     private Tween _currentTween;
 

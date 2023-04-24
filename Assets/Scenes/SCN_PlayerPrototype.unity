@@ -682,6 +682,7 @@ GameObject:
   - component: {fileID: 48130854}
   - component: {fileID: 48130856}
   - component: {fileID: 48130855}
+  - component: {fileID: 48130857}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -806,6 +807,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48130853}
   m_CullTransparentMesh: 1
+--- !u!114 &48130857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48130853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee48e10fd3264bb0ab98fb27abcbb3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soInt: {fileID: 11400000, guid: 72b11403163bb40329844a2198a41f87, type: 2}
+  uiTextValue: {fileID: 48130855}
 --- !u!1 &66586086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +1919,51 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 11.891609, y: 1.3867385, z: 0}
     m_Extent: {x: 113.00081, y: 3.6211388, z: 0}
+--- !u!1 &407563456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 407563457}
+  - component: {fileID: 407563458}
+  m_Layer: 0
+  m_Name: InGameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &407563457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407563456}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 631247069}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &407563458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407563456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e18c7ec34274f36828085607229d3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiTextCoins: {fileID: 48130855}
 --- !u!212 &423038943 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3517653971288608096, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
@@ -3128,6 +3188,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1454892698}
+  - {fileID: 407563457}
   m_Father: {fileID: 1647431484}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5736,8 +5797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f2d2b3141e94ba6be20d164af31571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
-  uiTextCoins: {fileID: 48130855}
+  coins: {fileID: 11400000, guid: 72b11403163bb40329844a2198a41f87, type: 2}
 --- !u!4 &1454892698
 Transform:
   m_ObjectHideFlags: 0
