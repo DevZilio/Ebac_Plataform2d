@@ -12,12 +12,9 @@ public class Player : MonoBehaviour
     public float speed;
     public float speedRun;
     public float forceJump;
+    public int _jumpCount;
 
-    [Header("Animation Setup")]
-    public float jumpScaleY = 1.5f;
-    public float jumpScaleX = 0.7f;
-    public float landingScaleY = 0.7f;
-    public float landingScaleX = 1.5f;
+
 
     [Header("Animation Player")]
     public string boolRun = "Run";
@@ -61,6 +58,7 @@ public class Player : MonoBehaviour
         HandleJump();
         HandleMoviment();
         
+
 
     }
 
@@ -117,12 +115,13 @@ public class Player : MonoBehaviour
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && _jumpCount < 2)
         {
-            
-                myRigidbody.velocity = Vector2.up * forceJump;
-               
-            
+
+            myRigidbody.velocity = Vector2.up * forceJump;
+            _jumpCount++;
+
+
 
             // myRigidbody.transform.localScale = Vector2.one; //Reseta a escala
 
@@ -144,27 +143,23 @@ public class Player : MonoBehaviour
 
 
 
- /*private void OnCollisionEnter(Collision collision) {
-
-        var ground = collision.FindWithTag(groundTag);
-
-        if(collision.gameObject.CompareTag(groundTag))
-        {
-            jumpN = 0;
-            Debug.Log("TouchGround");
-        }
-    }*/
-
-   
-/*
-    private void handleScaleLanding()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-            myRigidbody.transform.DOScaleY(landingScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
-            myRigidbody.transform.DOScaleX(landingScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            _jumpCount = 0;
+        }
+    }
 
 
-    }*/
+
+    /*
+        private void handleScaleLanding()
+        {
+
+                myRigidbody.transform.DOScaleY(landingScaleY, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+                myRigidbody.transform.DOScaleX(landingScaleX, animationDuration).SetLoops(2, LoopType.Yoyo).SetEase(ease);
+        }*/
 
     private void checkIfPlayerIsFalling()
     {

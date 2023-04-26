@@ -580,7 +580,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5417049217890273684, guid: 3de838754c767a446a5473969062a84e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3de838754c767a446a5473969062a84e, type: 3}
 --- !u!4 &43697710 stripped
 Transform:
@@ -1746,7 +1747,7 @@ GameObject:
   - component: {fileID: 361585512}
   m_Layer: 0
   m_Name: SPR_Floor (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -6940,7 +6941,7 @@ GameObject:
   - component: {fileID: 1812946429}
   m_Layer: 0
   m_Name: SPR_Floor
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -7528,10 +7529,7 @@ MonoBehaviour:
   speed: 10
   speedRun: 15
   forceJump: 30
-  jumpScaleY: 1.1
-  jumpScaleX: 0.5
-  landingScaleY: 0.5
-  landingScaleX: 1.3
+  _jumpCount: 0
   boolRun: Run
   boolJump: Jump
   triggerDeath: Death
