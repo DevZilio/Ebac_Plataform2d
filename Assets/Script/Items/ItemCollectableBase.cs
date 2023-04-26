@@ -5,10 +5,11 @@ using UnityEngine;
 public class ItemCollectableBase : MonoBehaviour
 {
     public string compareTag = "Player";
+    private bool collected = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag(compareTag))
+        if (!collected && collision.transform.CompareTag(compareTag))
         {
             Collect();
         }
@@ -18,7 +19,14 @@ public class ItemCollectableBase : MonoBehaviour
     {
         Debug.Log("Collect");
         OnCollect();
+        collected = true;
         // gameObject.SetActive(false);
+
+        Collider2D collider = GetComponent<Collider2D>();
+        if (collider != null)
+        {
+            collider.enabled = false;
+        }
     }
 
 
