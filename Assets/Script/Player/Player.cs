@@ -9,12 +9,10 @@ public class Player : MonoBehaviour
 
     [Header("Moviment Setup")]
     public Vector2 friction = new Vector2(.1f, 0);
-    public float speed;
-    public float speedRun;
-    public float forceJump;
+    public SOFloat soSpeed;
+    public SOFloat soSpeedRun;
+    public SOFloat soForceJump;
     public int _jumpCount;
-
-
 
     [Header("Animation Player")]
     public string boolRun = "Run";
@@ -34,7 +32,6 @@ public class Player : MonoBehaviour
 
     public HealthBase healthBase;
 
-
     private void Awake()
     {
         if (healthBase != null)
@@ -48,39 +45,32 @@ public class Player : MonoBehaviour
         healthBase.OnKill -= OnPlayerKill;
 
         animator.SetTrigger(triggerDeath);
-
-
     }
-
 
     private void Update()
     {
         checkIfPlayerIsFalling();
         HandleJump();
-        HandleMoviment();
-
-
-
+        HandleMovement();
     }
 
-
-    private void HandleMoviment()
+    private void HandleMovement()
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            _currentSpeed = speedRun;
-            animator.speed = 1.5f;
+            _currentSpeed = soSpeedRun.value;
+          animator.speed = 1.5f;
         }
         else
         {
-            _currentSpeed = speed;
-            animator.speed = 1;
+            _currentSpeed = soSpeed.value;
+            animator.speed = 1f;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-
             myRigidbody.velocity = new Vector2(-_currentSpeed, myRigidbody.velocity.y);
+
             if (myRigidbody.transform.localScale.x != -1)
             {
                 myRigidbody.transform.DOScaleX(-1, playerSwipeDuration);
@@ -89,9 +79,8 @@ public class Player : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-
-
             myRigidbody.velocity = new Vector2(_currentSpeed, myRigidbody.velocity.y);
+
             if (myRigidbody.transform.localScale.x != 1)
             {
                 myRigidbody.transform.DOScaleX(1, playerSwipeDuration);
@@ -111,30 +100,16 @@ public class Player : MonoBehaviour
         {
             myRigidbody.velocity -= friction;
         }
-
     }
 
     private void HandleJump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && _jumpCount < 2)
         {
-
-            myRigidbody.velocity = Vector2.up * forceJump;
+            myRigidbody.velocity = Vector2.up * soForceJump.value;
             _jumpCount++;
-
-
-
-
         }
-
-
     }
-
-
-
-
-
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -144,23 +119,17 @@ public class Player : MonoBehaviour
         }
     }
 
-
-
-
-
     private void checkIfPlayerIsFalling()
     {
         if (myRigidbody.velocity.y < fallingThreshold)
         {
             falling = true;
             animator.SetBool(boolJump, false);
-
         }
         else if (myRigidbody.velocity.y > fallingThreshold)
         {
             falling = false;
             animator.SetBool(boolJump, true);
-
         }
     }
 
@@ -168,24 +137,4 @@ public class Player : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
