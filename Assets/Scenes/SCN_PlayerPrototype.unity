@@ -7914,21 +7914,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 1993398741}
-  friction: {x: -0.3, y: 0}
-  soSpeed: {fileID: 11400000, guid: a907037318efb414d99cea481fd36e98, type: 2}
-  soSpeedRun: {fileID: 11400000, guid: b54aff1b718464bad97d7956dac31f4a, type: 2}
-  soForceJump: {fileID: 11400000, guid: 8be75ff33de0244ea9a8db22f89a934b, type: 2}
-  _jumpCount: 0
-  boolRun: Run
-  boolJump: Jump
-  triggerDeath: Death
+  sOPlayerSetup: {fileID: 11400000, guid: 21a4d28660b6f4b98bf6e98a03c3e603, type: 2}
   animator: {fileID: 674722862}
-  playerSwipeDuration: 0.01
-  falling: 0
-  fallingThreshold: 0.1
-  animationDuration: 0.4
-  ease: 27
-  ground: Ground
   healthBase: {fileID: 1993398746}
 --- !u!114 &1993398746
 MonoBehaviour:

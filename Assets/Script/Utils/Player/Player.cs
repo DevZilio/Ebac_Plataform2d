@@ -7,29 +7,12 @@ public class Player : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
 
-    [Header("Moviment Setup")]
-    public Vector2 friction = new Vector2(.1f, 0);
-    public SOFloat soSpeed;
-    public SOFloat soSpeedRun;
-    public SOFloat soForceJump;
-    public int _jumpCount;
-
-    [Header("Animation Player")]
-    public string boolRun = "Run";
-    public string boolJump = "Jump";
-    public string triggerDeath = "Death";
-    public Animator animator;
-    public float playerSwipeDuration = .1f;
-
-    public bool falling;
-    public float fallingThreshold;
-
-    public float animationDuration = 0.3f;
-    public Ease ease = Ease.OutBack;
+    [Header("Player Setup")]
+    public SOPlayerSetup sOPlayerSetup;
 
     private float _currentSpeed;
-    public string ground = "Ground";
 
+    public Animator animator;
     public HealthBase healthBase;
 
     private void Awake()
@@ -44,7 +27,7 @@ public class Player : MonoBehaviour
     {
         healthBase.OnKill -= OnPlayerKill;
 
-        animator.SetTrigger(triggerDeath);
+        animator.SetTrigger(sOPlayerSetup.triggerDeath);
     }
 
     private void Update()
@@ -58,12 +41,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            _currentSpeed = soSpeedRun.value;
-          animator.speed = 1.5f;
+            _currentSpeed = sOPlayerSetup.speedRun;
+            animator.speed = 1.5f;
         }
         else
         {
-            _currentSpeed = soSpeed.value;
+            _currentSpeed = sOPlayerSetup.speed;
             animator.speed = 1f;
         }
 
@@ -73,9 +56,9 @@ public class Player : MonoBehaviour
 
             if (myRigidbody.transform.localScale.x != -1)
             {
-                myRigidbody.transform.DOScaleX(-1, playerSwipeDuration);
+                myRigidbody.transform.DOScaleX(-1, sOPlayerSetup.playerSwipeDuration).SetEase(sOPlayerSetup.ease);
             }
-            animator.SetBool(boolRun, true);
+            animator.SetBool(sOPlayerSetup.boolRun, true);
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -83,58 +66,59 @@ public class Player : MonoBehaviour
 
             if (myRigidbody.transform.localScale.x != 1)
             {
-                myRigidbody.transform.DOScaleX(1, playerSwipeDuration);
+                myRigidbody.transform.DOScaleX(1, sOPlayerSetup.playerSwipeDuration).SetEase(sOPlayerSetup.ease);
             }
-            animator.SetBool(boolRun, true);
+            animator.SetBool(sOPlayerSetup.boolRun, true);
         }
         else
         {
-            animator.SetBool(boolRun, false);
+            animator.SetBool(sOPlayerSetup.boolRun, false);
         }
 
         if (myRigidbody.velocity.x > 0)
         {
-            myRigidbody.velocity += friction;
+            myRigidbody.velocity += sOPlayerSetup.friction;
         }
         else if (myRigidbody.velocity.x < 0)
         {
-            myRigidbody.velocity -= friction;
+            myRigidbody.velocity -= sOPlayerSetup.friction;
         }
     }
 
     private void HandleJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _jumpCount < 2)
+        if (Input.GetKeyDown(KeyCode.Space) && sOPlayerSetup._jumpCount < 2)
         {
-            myRigidbody.velocity = Vector2.up * soForceJump.value;
-            _jumpCount++;
+            myRigidbody.velocity = Vector2.up * sOPlayerSetup.forceJump;
+            sOPlayerSetup._jumpCount++;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(ground))
+        if (collision.gameObject.CompareTag(sOPlayerSetup.ground))
         {
-            _jumpCount = 0;
+            sOPlayerSetup._jumpCount = 0;
         }
     }
 
     private void checkIfPlayerIsFalling()
     {
-        if (myRigidbody.velocity.y < fallingThreshold)
+        if (myRigidbody.velocity.y < sOPlayerSetup.fallingThreshold)
         {
-            falling = true;
-            animator.SetBool(boolJump, false);
+            sOPlayerSetup.falling = true;
+            animator.SetBool(sOPlayerSetup.boolJump, false);
         }
-        else if (myRigidbody.velocity.y > fallingThreshold)
+        else if (myRigidbody.velocity.y > sOPlayerSetup.fallingThreshold)
         {
-            falling = false;
-            animator.SetBool(boolJump, true);
+            sOPlayerSetup.falling = false;
+            animator.SetBool(sOPlayerSetup.boolJump, true);
         }
     }
 
     public void DestroyMe()
     {
         Destroy(gameObject);
+        
     }
 }
