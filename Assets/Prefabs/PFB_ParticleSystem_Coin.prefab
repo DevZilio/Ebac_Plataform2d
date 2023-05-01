@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6556482230713092765}
   - component: {fileID: 4963727256863193300}
   m_Layer: 0
-  m_Name: PFB_ParticleSystem
+  m_Name: PFB_ParticleSystem_Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
