@@ -6,6 +6,7 @@ public class ItemCollectableBase : MonoBehaviour
 {
     public string compareTag = "Player";
     private bool collected = false;
+    public new ParticleSystem particleSystem;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,5 +31,7 @@ public class ItemCollectableBase : MonoBehaviour
     }
 
 
-    protected virtual void OnCollect() { }
+    protected virtual void OnCollect() { 
+        if (particleSystem != null) particleSystem.Play();
+    }
 }
