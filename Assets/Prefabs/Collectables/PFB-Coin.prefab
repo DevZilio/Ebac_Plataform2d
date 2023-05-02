@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   compareTag: Player
-  particleSystem: {fileID: 8316482194342487402}
+  coinCollected: {fileID: 8316482194342487402}
   animator: {fileID: 450890414997353481}
 --- !u!58 &6707026386012069196
 CircleCollider2D:
