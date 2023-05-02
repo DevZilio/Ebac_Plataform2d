@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Rigidbody2D myRigidbody;
+    public ParticleSystem jumpVFX;
 
     [Header("Player Setup")]
     public SOPlayerSetup sOPlayerSetup;
@@ -91,8 +92,18 @@ public class Player : MonoBehaviour
         {
             myRigidbody.velocity = Vector2.up * sOPlayerSetup.forceJump;
             sOPlayerSetup._jumpCount++;
+            PlayJumpVFX();
         }
+        
     }
+
+
+private void PlayJumpVFX()
+{
+    if (jumpVFX != null && sOPlayerSetup._jumpCount <=1) jumpVFX.Play();
+}
+
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
