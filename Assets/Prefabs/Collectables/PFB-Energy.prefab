@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 1419557956907884540}
   - component: {fileID: 6763515681073617461}
   - component: {fileID: 470928709777175408}
-  - component: {fileID: 5928593114164305464}
+  - component: {fileID: 7313889415908714964}
   m_Layer: 0
   m_Name: PFB-Energy
   m_TagString: Untagged
@@ -241,7 +241,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5928593114164305464
+--- !u!114 &7313889415908714964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,5 +254,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   compareTag: Player
+  particleSystem: {fileID: 6556482230713092765, guid: eca086c5c4f0445a49e3a90f968c3e83, type: 3}
   animator: {fileID: 470928709777175408}
-  followTransform: {fileID: 0}
