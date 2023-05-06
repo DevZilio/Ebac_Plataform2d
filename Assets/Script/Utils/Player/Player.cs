@@ -5,17 +5,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public Rigidbody2D myRigidbody;
-    public ParticleSystem jumpVFX;
+     // Variáveis públicas para acessar outros componentes
+    public Rigidbody2D myRigidbody; // Rigidbody2D do jogador
+    public ParticleSystem jumpVFX; // Sistema de partículas para o efeito de pulo
+    public ParticleSystem walkVFX; // Sistema de partículas para o efeito de caminhada
+    public Animator animator; // Animator do jogador
+    public HealthBase healthBase; // Componente HealthBase que gerencia a saúde do jogador
 
+    // Variáveis privadas que controlam o estado do jogador
+    private bool isGrounded = true; // Indica se o jogador está no chão
+    private float _currentSpeed; // Velocidade atual do jogador
+
+    // Referência a um ScriptableObject que contém configurações do jogador
     [Header("Player Setup")]
     public SOPlayerSetup sOPlayerSetup;
 
-    private float _currentSpeed;
-
-    public Animator animator;
-    public HealthBase healthBase;
-
+// Adiciona um evento de morte para a função OnPlayerKill
     private void Awake()
     {
         if (healthBase != null)
@@ -23,23 +28,35 @@ public class Player : MonoBehaviour
             healthBase.OnKill += OnPlayerKill;
         }
     }
-
+ // Função que é chamada quando o jogador morre
     private void OnPlayerKill()
     {
+         // Remove o evento de morte da função OnPlayerKill
         healthBase.OnKill -= OnPlayerKill;
-
+        // Ativa a animação de morte
         animator.SetTrigger(sOPlayerSetup.triggerDeath);
     }
 
+  // Função que é chamada a cada frame
     private void Update()
     {
+        // Verifica se o jogador está caindo
         checkIfPlayerIsFalling();
+
+        // Lida com o pulo do jogador
         HandleJump();
+
+        // Lida com o movimento do jogador
         HandleMovement();
     }
 
     private void HandleMovement()
     {
+        if (isGrounded)
+        {
+            PlayWalkVFX();
+        }
+        
         if (Input.GetKey(KeyCode.LeftShift))
         {
             _currentSpeed = sOPlayerSetup.speedRun;
@@ -60,6 +77,7 @@ public class Player : MonoBehaviour
                 myRigidbody.transform.DOScaleX(-1, sOPlayerSetup.playerSwipeDuration).SetEase(sOPlayerSetup.ease);
             }
             animator.SetBool(sOPlayerSetup.boolRun, true);
+            PlayWalkVFX();
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -70,6 +88,7 @@ public class Player : MonoBehaviour
                 myRigidbody.transform.DOScaleX(1, sOPlayerSetup.playerSwipeDuration).SetEase(sOPlayerSetup.ease);
             }
             animator.SetBool(sOPlayerSetup.boolRun, true);
+            PlayWalkVFX();
         }
         else
         {
@@ -92,6 +111,11 @@ public class Player : MonoBehaviour
         {
             myRigidbody.velocity = Vector2.up * sOPlayerSetup.forceJump;
             sOPlayerSetup._jumpCount++;
+
+              if (walkVFX != null)
+            {
+                walkVFX.Stop();
+            }
             PlayJumpVFX();
         }
         
@@ -103,13 +127,42 @@ private void PlayJumpVFX()
     if (jumpVFX != null && sOPlayerSetup._jumpCount <=1) jumpVFX.Play();
 }
 
+private void PlayWalkVFX()
+{
+     if (walkVFX != null && sOPlayerSetup._jumpCount == 0) 
+    {
+        if(!walkVFX.isPlaying)
+        {
+            walkVFX.Play();
+        }
+    }
+    else if (walkVFX != null && sOPlayerSetup._jumpCount > 0)
+    {
+        walkVFX.Stop();
+    }
+}
+
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(sOPlayerSetup.ground))
         {
+            isGrounded = true;
             sOPlayerSetup._jumpCount = 0;
+            if(walkVFX != null)
+            {
+                walkVFX.Play();
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(sOPlayerSetup.ground))
+        {
+            // o personagem saiu do chão, então desativa a verificação para ativar o particle system walkVFX
+            isGrounded = false;
         }
     }
 
