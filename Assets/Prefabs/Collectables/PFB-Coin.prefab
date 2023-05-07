@@ -50,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compareTag: Player
   coinCollected: {fileID: 8316482194342487402}
+  timeToHide: 3
+  graphicItem: {fileID: 4443750719981345476}
   animator: {fileID: 450890414997353481}
 --- !u!58 &6707026386012069196
 CircleCollider2D:

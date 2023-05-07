@@ -4,33 +4,36 @@ using UnityEngine;
 
 public class ItemCollectableBase : MonoBehaviour
 {
-    public string compareTag = "Player";
-    private bool collected = false;
-    public new ParticleSystem coinCollected;
+    public string compareTag = "Player";    
+    public ParticleSystem coinCollected;
+    public float timeToHide = 3;
+    public GameObject graphicItem;
 
+
+    //Identify the collision using a Taga name and call the function Collect()
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collected && collision.transform.CompareTag(compareTag))
+    
+        if ( collision.transform.CompareTag(compareTag))
         {
             Collect();
         }
     }
-
+// Hide the main renderer sprit, starts particle system and wait to end animation
     protected virtual void Collect()
     {
-        Debug.Log("Collect");
+        if(graphicItem != null) graphicItem.SetActive(false);
+        Invoke("HideObject", timeToHide);
         OnCollect();
-        collected = true;
-        // gameObject.SetActive(false);
-
-        Collider2D collider = GetComponent<Collider2D>();
-        if (collider != null)
-        {
-            collider.enabled = false;
-        }
     }
 
+// Make false the main object, hiding while particle system works
+public void HideObject()
+{
+        gameObject.SetActive(false);
+}
 
+// Starts Particle System when item is collected
     protected virtual void OnCollect() { 
         if (coinCollected != null) coinCollected.Play();
     }
