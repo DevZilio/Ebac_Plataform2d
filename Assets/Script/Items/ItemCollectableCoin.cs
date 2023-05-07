@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemCollectableCoin : ItemCollectableBase
 {
+    [Header("Animation")]
     // Public variable to store the animator component
     public Animator animator;
 
