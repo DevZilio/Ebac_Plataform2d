@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerDestroyHelper : MonoBehaviour
 {
-   public Player player;
+    public Player player;
 
-   public void killPlayer()
-   {
-       player.DestroyMe();
-   }
+    public void killPlayer()
+    {
+        if (player != null)
+        {
+            player.DestroyMe();
+        }
+    }
 }
