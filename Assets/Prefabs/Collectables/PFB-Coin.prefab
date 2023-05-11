@@ -183,6 +183,7 @@ MonoBehaviour:
   graphicItem: {fileID: 4443750719981345476}
   audioSource: {fileID: 4518032239709613918}
   animator: {fileID: 450890414997353481}
+  collider: {fileID: 6707026386012069196}
 --- !u!58 &6707026386012069196
 CircleCollider2D:
   m_ObjectHideFlags: 0
