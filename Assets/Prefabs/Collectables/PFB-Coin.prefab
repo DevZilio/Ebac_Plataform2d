@@ -42,7 +42,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 6543883988977346034, guid: ee6367aa12dea4d6391f922c48332ffc, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 7b34a1c3f2d86478f8ece94c4c46c8dd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1b53203bb1743424191897086669b2ae, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -178,12 +178,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   compareTag: Player
-  coinCollected: {fileID: 8316482194342487402}
   timeToHide: 3
   graphicItem: {fileID: 4443750719981345476}
-  audioSource: {fileID: 4518032239709613918}
   animator: {fileID: 450890414997353481}
   collider: {fileID: 6707026386012069196}
+  audioSource: {fileID: 4518032239709613918}
 --- !u!58 &6707026386012069196
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -381,10 +380,5 @@ PrefabInstance:
 --- !u!4 &2149733345163784284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3765636773258534827, guid: eca086c5c4f0445a49e3a90f968c3e83, type: 3}
-  m_PrefabInstance: {fileID: 2996962654581796855}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8316482194342487402 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6556482230713092765, guid: eca086c5c4f0445a49e3a90f968c3e83, type: 3}
   m_PrefabInstance: {fileID: 2996962654581796855}
   m_PrefabAsset: {fileID: 0}
