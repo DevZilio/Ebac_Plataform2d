@@ -15,6 +15,9 @@ public class EnemyBase : MonoBehaviour
 
     public HealthBase healthBase;
 
+    public AudioSource deathSound;
+    public AudioSource hitSound;
+
 
     private void Awake()
     {
@@ -55,10 +58,12 @@ public class EnemyBase : MonoBehaviour
     private void PlayKillAnimation()
     {
         animator.SetTrigger(triggerKill);
+        if (deathSound != null) deathSound.Play();
     }
 
     public void Damage(int amount)
     {
         healthBase.Damage(amount);
+        if(hitSound != null) hitSound.Play();
     }
 }
