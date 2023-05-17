@@ -846,7 +846,6 @@ GameObject:
   m_Component:
   - component: {fileID: 115012945}
   - component: {fileID: 115012944}
-  - component: {fileID: 115012946}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Ground
@@ -909,14 +908,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &115012946
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115012943}
-  m_Enabled: 1
 --- !u!1 &140729057
 GameObject:
   m_ObjectHideFlags: 0
