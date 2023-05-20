@@ -49,6 +49,8 @@ public class HealthBase : MonoBehaviour
        {
            flashColor.Flash();
        }
+
+        ItemManager.Instance.LossHearts();
    }
 
    private void Kill()

@@ -359,6 +359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_ParticleSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 5063856754828530241, guid: eca086c5c4f0445a49e3a90f968c3e83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6556482230713092765, guid: eca086c5c4f0445a49e3a90f968c3e83, type: 3}
       propertyPath: CollisionModule.radiusScale
       value: 1.98

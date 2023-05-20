@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ItemCollectableCoin : ItemCollectableBase
 {
+
+    public Collider2D collider;
+
     [Header("Animation")]
     // Public variable to store the animator component
     public Animator animator;
-    public Collider2D collider;
 
     [Header("Sounds")]
     public AudioSource audioSource;

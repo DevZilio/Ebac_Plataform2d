@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class ItemManager : Singleton<ItemManager>
 {
-
+ 
     public SOInt coins;
+    public SOInt hearts;
 
 
     private void Start()
@@ -18,6 +19,7 @@ public class ItemManager : Singleton<ItemManager>
     private void Reset()
     {
         coins.value = 0;
+        hearts.value = 3;
     }
 
     public void AddCoins(int amount = 1)
@@ -25,5 +27,14 @@ public class ItemManager : Singleton<ItemManager>
         coins.value += amount;
     }
 
+    public void AddHearts(int amount = 1)
+    {
+        // if(hearts.value <= 2) 
+        hearts.value+= amount;
+    }
 
+public void LossHearts(int amount = 1)
+{
+    hearts.value -= amount;
+}
 }
