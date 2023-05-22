@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4762644284892731078}
   - component: {fileID: 4762644284892731079}
   - component: {fileID: 4762644284892731096}
+  - component: {fileID: 6800850968908422601}
   m_Layer: 0
   m_Name: PFB_DevEnemy_02
   m_TagString: Untagged
@@ -71,8 +72,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05, y: 3.75}
-  m_Size: {x: 3.72, y: 6.95}
+  m_Offset: {x: -0.34893227, y: 3.75}
+  m_Size: {x: 4.517864, y: 6.95}
   m_Direction: 0
 --- !u!50 &4762644284892731079
 Rigidbody2D:
@@ -111,6 +112,20 @@ MonoBehaviour:
   destroyOnKill: 0
   delayToKill: 0
   flashColor: {fileID: 4762644285271245620}
+--- !u!114 &6800850968908422601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762644284892731098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50daa11b382904f7a87a1328173a4243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  distance: 5
 --- !u!1 &5668889027504842361
 GameObject:
   m_ObjectHideFlags: 0
