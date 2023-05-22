@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using DevZilio.Core.Singleton;
 using TMPro;
@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class ItemManager : Singleton<ItemManager>
 {
- 
     public SOInt coins;
+
     public SOInt hearts;
 
+    public event Action<int> OnAddHearts;
 
     private void Start()
     {
@@ -29,12 +30,14 @@ public class ItemManager : Singleton<ItemManager>
 
     public void AddHearts(int amount = 1)
     {
-        // if(hearts.value <= 2) 
-        hearts.value+= amount;
+        // if(hearts.value <= 2)
+
+        hearts.value += amount;
+        OnAddHearts?.Invoke(hearts.value);
     }
 
-public void LossHearts(int amount = 1)
-{
-    hearts.value -= amount;
-}
+    public void LossHearts(int amount = 1)
+    {
+        hearts.value -= amount;
+    }
 }

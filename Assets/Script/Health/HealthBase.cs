@@ -27,6 +27,11 @@ public class HealthBase : MonoBehaviour
        }
    }
 
+   public void SetCurrentLife(int currentLife)
+   {
+       _currentLife = currentLife;
+   }
+
    private void Init(){
        _isDead = false;
        _currentLife = startLife;
@@ -64,4 +69,5 @@ public class HealthBase : MonoBehaviour
           OnKill?.Invoke();
           //Usar o ? é o mesmo que fazer if(Onkill != null)
    }
+
 }

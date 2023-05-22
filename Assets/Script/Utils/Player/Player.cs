@@ -28,6 +28,17 @@ public class Player : MonoBehaviour
             healthBase.OnKill += OnPlayerKill;
         }
     }
+
+    private void Start()
+    {
+        ItemManager.Instance.OnAddHearts += OnAddHearts;
+    }
+
+    private void OnAddHearts(int value)
+    {
+        healthBase.SetCurrentLife(value);
+    }
+    
  // Função que é chamada quando o jogador morre
     private void OnPlayerKill()
     {
