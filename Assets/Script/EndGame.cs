@@ -21,5 +21,6 @@ public class EndGame : MonoBehaviour
     public void CallEndGame()
     {
         uiEndGame.SetActive(true);
+        Time.timeScale = 0f; // Pause game
     }
 }
