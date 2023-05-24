@@ -93,8 +93,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3915904093374760090}
+  - component: {fileID: 2483050192639588099}
   - component: {fileID: 7457022469679475833}
-  - component: {fileID: 1887236402881640788}
   m_Layer: 0
   m_Name: ProjectileEnemy
   m_TagString: Untagged
@@ -118,6 +118,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2483050192639588099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3915904093374760089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fce081aa9164c9c9d964eab018ac6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 5, y: 0, z: 0}
+  timeToDestroy: 4
+  side: 1
+  damageAmount: 1
 --- !u!58 &7457022469679475833
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -127,26 +143,10 @@ CircleCollider2D:
   m_GameObject: {fileID: 3915904093374760089}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 40dc323e3b4214d85827676548701235, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.59750396
---- !u!114 &1887236402881640788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3915904093374760089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdbe25b6ac79c4bf2bd955282c1e0b47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 7, y: 0, z: 0}
-  timeToDestroy: 2.2
-  side: 1
-  damageAmount: 1

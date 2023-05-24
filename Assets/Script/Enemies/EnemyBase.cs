@@ -35,6 +35,7 @@ public class EnemyBase : MonoBehaviour
         Destroy(gameObject, timeToDestroy);
     }
 
+//Enemy Attack - when player touch, loss life
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Debug.Log(collision.transform.name);
@@ -43,7 +44,7 @@ public class EnemyBase : MonoBehaviour
 
         if (health != null)
         {
-            health.Damage(damage);
+            health.DamageOnPlayer(damage);
             PlayAttackAnimation();
         }
 
@@ -61,9 +62,10 @@ public class EnemyBase : MonoBehaviour
         if (deathSound != null) deathSound.Play();
     }
 
+
     public void Damage(int amount)
     {
-        healthBase.Damage(amount);
+        healthBase.DamageOnEnemy(amount);
         if(hitSound != null) hitSound.Play();
     }
 }

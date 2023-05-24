@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public ProjectileBase prefabProjectile;
+    public EnemyProjectileBase prefabProjectile;
 
     public Transform positionToShoot;
     public float timeBetweenShoot = .3f;

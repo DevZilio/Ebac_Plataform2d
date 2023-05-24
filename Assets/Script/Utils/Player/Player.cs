@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     {
         healthBase.SetCurrentLife(value);
     }
-    
+
  // Função que é chamada quando o jogador morre
     private void OnPlayerKill()
     {
@@ -196,4 +196,6 @@ private void PlayWalkVFX()
         Destroy(gameObject);
         
     }
+
+    
 }

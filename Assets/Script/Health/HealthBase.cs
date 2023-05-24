@@ -38,7 +38,7 @@ public class HealthBase : MonoBehaviour
 
    }
 
-   public void Damage(int damage)
+   public void DamageOnPlayer(int damage)
    {
        if (_isDead) return;                 // se o personagem estiver morto, a funcao para por aqui e nem executa o resto
 
@@ -56,6 +56,25 @@ public class HealthBase : MonoBehaviour
        }
 
         ItemManager.Instance.LossHearts();
+   
+   }
+   public void DamageOnEnemy(int damage)
+   {
+       if (_isDead) return;                 // se o personagem estiver morto, a funcao para por aqui e nem executa o resto
+
+       _currentLife -= damage;
+
+       if (_currentLife <= 0)
+       {
+           Kill();
+
+       }
+
+       if(flashColor != null)
+       {
+           flashColor.Flash();
+       }
+
    }
 
    private void Kill()
