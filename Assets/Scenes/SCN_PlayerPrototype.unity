@@ -1041,7 +1041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4762644284892731097, guid: 6ca6487fe2dff4ba79a82b76f8c63504, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 58.9
+      value: 61.3
       objectReference: {fileID: 0}
     - target: {fileID: 4762644284892731097, guid: 6ca6487fe2dff4ba79a82b76f8c63504, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1117,7 +1117,7 @@ PrefabInstance:
       objectReference: {fileID: 2483050192639588099, guid: e0b6b67609ad34801a3eeb73963684d1, type: 3}
     - target: {fileID: 8638899535835526938, guid: 6ca6487fe2dff4ba79a82b76f8c63504, type: 3}
       propertyPath: timeBetweenShoot
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8638899535835526938, guid: 6ca6487fe2dff4ba79a82b76f8c63504, type: 3}
       propertyPath: enemySideReference
@@ -14188,7 +14188,7 @@ PrefabInstance:
       objectReference: {fileID: 2483050192639588099, guid: e0b6b67609ad34801a3eeb73963684d1, type: 3}
     - target: {fileID: 8638899535835526938, guid: 6ca6487fe2dff4ba79a82b76f8c63504, type: 3}
       propertyPath: timeBetweenShoot
-      value: 1
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8638899535835526938, guid: 6ca6487fe2dff4ba79a82b76f8c63504, type: 3}
       propertyPath: enemySideReference
@@ -20840,7 +20840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3193357282320267993, guid: e5b4208f3e3414dacbb00d328b40ba1c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.5
+      value: -17.4
       objectReference: {fileID: 0}
     - target: {fileID: 3193357282320267993, guid: e5b4208f3e3414dacbb00d328b40ba1c, type: 3}
       propertyPath: m_LocalPosition.z

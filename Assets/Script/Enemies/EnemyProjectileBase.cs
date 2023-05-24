@@ -12,6 +12,7 @@ public class EnemyProjectileBase: MonoBehaviour
 
     public float side = 1;
     public int damageAmount = 1;
+    public float movementSpeed = 1f;
 
     private void Awake()
     {
@@ -20,7 +21,7 @@ public class EnemyProjectileBase: MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(direction * Time.deltaTime * side); //Cria gameobject   
+        transform.Translate(Vector2.left * movementSpeed * Time.deltaTime);//Cria gameobject   
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

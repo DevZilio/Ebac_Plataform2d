@@ -7,8 +7,9 @@ public class EnemyAttack : MonoBehaviour
     public EnemyProjectileBase prefabProjectile;
 
     public Transform positionToShoot;
-    public float timeBetweenShoot = .3f;
+    public float timeBetweenShoot = 2.5f;
     public Transform enemySideReference;
+    
 
     public AudioSource audioSource;
 
@@ -25,8 +26,8 @@ public class EnemyAttack : MonoBehaviour
     {
         while (true)
         {
-            Shoot();
             yield return new WaitForSeconds(timeBetweenShoot);
+            Shoot();
         }
     }
 
@@ -34,7 +35,10 @@ public class EnemyAttack : MonoBehaviour
     {
         var projectile = Instantiate(prefabProjectile);
         projectile.transform.position = positionToShoot.position;
-        projectile.side = -enemySideReference.transform.localScale.x;
+        projectile.side = enemySideReference.transform.localScale.x;
         if(audioSource != null) audioSource.Play();
     }
+
+        // Atualiza o movimento do objeto
+  
 }

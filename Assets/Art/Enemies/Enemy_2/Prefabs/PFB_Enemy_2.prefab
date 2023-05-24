@@ -706,7 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabProjectile: {fileID: 0}
   positionToShoot: {fileID: 7495869758679507886}
-  timeBetweenShoot: 0.3
+  timeBetweenShoot: 2.5
   enemySideReference: {fileID: 0}
   audioSource: {fileID: 0}
 --- !u!1 &5201705773573792663
