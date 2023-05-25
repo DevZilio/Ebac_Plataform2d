@@ -21,8 +21,9 @@ MonoBehaviour:
   boolJump: Jump
   triggerDeath: Death
   animationDuration: 0.3
+  deathAnimationDuration: 1
   playerSwipeDuration: 0.01
   falling: 1
-  fallingThreshold: 0.1
+  fallingThreshold: 5
   ease: 27
   ground: Ground
