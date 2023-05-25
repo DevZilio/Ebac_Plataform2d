@@ -46,6 +46,19 @@ public class Player : MonoBehaviour
         healthBase.OnKill -= OnPlayerKill;
         // Ativa a animação de morte
         animator.SetTrigger(sOPlayerSetup.triggerDeath);
+
+          StartCoroutine(EndGameCoroutine());
+    }
+
+    private IEnumerator EndGameCoroutine()
+    {
+        yield return new WaitForSeconds(sOPlayerSetup.deathAnimationDuration);
+
+        EndGame endGame = FindObjectOfType<EndGame>();
+        if (endGame != null)
+        {
+            endGame.CallEndGame();
+        }
     }
 
   // Função que é chamada a cada frame

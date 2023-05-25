@@ -19,6 +19,7 @@ public class SOPlayerSetup : ScriptableObject
     public string boolJump = "Jump";
     public string triggerDeath = "Death";
     public float animationDuration = 0.3f;
+    public float deathAnimationDuration = 1f;
     public float playerSwipeDuration = .1f;
     public bool falling;
     public float fallingThreshold;
