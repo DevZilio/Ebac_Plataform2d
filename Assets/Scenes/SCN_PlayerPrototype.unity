@@ -2540,6 +2540,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318719405}
   m_CullTransparentMesh: 1
+--- !u!4 &327974431 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3625104546839453143, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+  m_PrefabInstance: {fileID: 1845069338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &335835554
 GameObject:
   m_ObjectHideFlags: 0
@@ -15236,6 +15241,50 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 6543883988977346034, guid: ee6367aa12dea4d6391f922c48332ffc, type: 2}
+    - target: {fileID: 3625104546839453143, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.7917
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625104546839453143, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5566
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625104546839453143, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625104546839453143, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.129
+      objectReference: {fileID: 0}
+    - target: {fileID: 3625104546839453143, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418159317490012250, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530601151551778089, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_Size.x
+      value: 5.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530601151551778089, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_Size.y
+      value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530601151551778089, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4530601151551778089, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5726723634515211365, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      propertyPath: m_Name
+      value: GroundCheck
+      objectReference: {fileID: 0}
     - target: {fileID: 6765531520364183608, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -15794,6 +15843,11 @@ MonoBehaviour:
   walkVFX: {fileID: 8481484351290532312}
   animator: {fileID: 674722862}
   healthBase: {fileID: 1993398746}
+  groundCheck: {fileID: 327974431}
+  groundCheckRadius: 0.6
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   sOPlayerSetup: {fileID: 11400000, guid: 21a4d28660b6f4b98bf6e98a03c3e603, type: 2}
 --- !u!114 &1993398746
 MonoBehaviour:
