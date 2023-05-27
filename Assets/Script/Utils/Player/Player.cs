@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         // Verifica se o jogador está caindo
-        // checkIfPlayerIsFalling();
+        checkIfPlayerIsFalling();
 
         // Lida com o pulo do jogador
         HandleJump();
@@ -137,7 +137,7 @@ public class Player : MonoBehaviour
          
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space) && sOPlayerSetup._jumpCount < 2)
+        if ( Input.GetKeyDown(KeyCode.Space) && sOPlayerSetup._jumpCount < 2)
         {
             myRigidbody.velocity = Vector2.up * sOPlayerSetup.forceJump;
             sOPlayerSetup._jumpCount++;
@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
             {
                 walkVFX.Stop();
             }
-            UpdateAnimation();
+            // UpdateAnimation();
             PlayJumpVFX();
         }
         
@@ -185,7 +185,7 @@ private void PlayWalkVFX()
             {
                 walkVFX.Play();
             }
-            UpdateAnimation();
+            // UpdateAnimation();
         }
     }
 
@@ -194,24 +194,24 @@ private void PlayWalkVFX()
         if (collision.gameObject.CompareTag(sOPlayerSetup.ground))
         {
             // o personagem saiu do chão, então desativa a verificação para ativar o particle system walkVFX
-            // isGrounded = false;
-            UpdateAnimation();
+            isGrounded = false;
+            // UpdateAnimation();
         }
     }
 
-    // private void checkIfPlayerIsFalling()
-    // {
-    //     if (myRigidbody.velocity.y < sOPlayerSetup.fallingThreshold)
-    //     {
-    //         sOPlayerSetup.falling = true;
-    //         animator.SetBool(sOPlayerSetup.boolJump, false);
-    //     }
-    //     else if (myRigidbody.velocity.y > sOPlayerSetup.fallingThreshold)
-    //     {
-    //         sOPlayerSetup.falling = false;
-    //         animator.SetBool(sOPlayerSetup.boolJump, true);
-    //     }
-    // }
+    private void checkIfPlayerIsFalling()
+    {
+        if (myRigidbody.velocity.y < sOPlayerSetup.fallingThreshold)
+        {
+            sOPlayerSetup.falling = true;
+            animator.SetBool(sOPlayerSetup.boolJump, false);
+        }
+        else if (myRigidbody.velocity.y > sOPlayerSetup.fallingThreshold)
+        {
+            sOPlayerSetup.falling = false;
+            animator.SetBool(sOPlayerSetup.boolJump, true);
+        }
+    }
 
     public void DestroyMe()
     {
@@ -221,24 +221,24 @@ private void PlayWalkVFX()
 
 
    
-  private void UpdateAnimation()
-{
-    if (isGrounded)
-    {
-        animator.SetBool("isJumping", false);
-        animator.SetBool("isFalling", false);
-    }
-    else if (myRigidbody.velocity.y > 0)
-    {
-        animator.SetBool("isJumping", true);
-        animator.SetBool("isFalling", false);
-    }
-    else if (myRigidbody.velocity.y < 0)
-    {
-        animator.SetBool("isJumping", false);
-        animator.SetBool("isFalling", true);
-    }
-}
+//   private void UpdateAnimation()
+// {
+//     if (isGrounded)
+//     {
+//         animator.SetBool("isJumping", false);
+//         animator.SetBool("isFalling", false);
+//     }
+//     else if (myRigidbody.velocity.y > 0)
+//     {
+//         animator.SetBool("isJumping", true);
+//         animator.SetBool("isFalling", false);
+//     }
+//     else if (myRigidbody.velocity.y < 0)
+//     {
+//         animator.SetBool("isJumping", false);
+//         animator.SetBool("isFalling", true);
+//     }
+// }
 
 }
     
