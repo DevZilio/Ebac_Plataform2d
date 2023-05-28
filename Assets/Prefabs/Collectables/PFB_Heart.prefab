@@ -125,6 +125,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5447104258832932651, guid: 8e7882e491a1b4f7e9a77edb88596cd7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447104258832932651, guid: 8e7882e491a1b4f7e9a77edb88596cd7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5611734109072052751, guid: 8e7882e491a1b4f7e9a77edb88596cd7, type: 3}
       propertyPath: m_Name
       value: SPR-Heart
