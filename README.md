@@ -12,23 +12,24 @@ This project went beyond the content provided in the course. Approximately 60% o
 
 Space Adventure 2D aims to showcase my progress as a game developer so far, highlighting the skills and competencies I have acquired throughout the course. It is a testament to my commitment to quality, creativity, and attention to detail, which are essential in creating engaging and memorable games.
 
-##Features
+<h2>Features</h2>
 Player character control: Players can control an astronaut in a 2D environment using arrow keys to move the character left or right.
 Player actions: The character can perform jumps by pressing the space bar and shoot lasers by pressing the "S" key.
 Running: By holding the Shift key, the player character can run faster to face challenges with agility.
 Collectibles: There are various collectible elements, such as coins and life items, scattered throughout the environment. By collecting these items, the player earns points or recovers their health.
 Enemies: The game features various types of enemies that the player must defeat to progress. Each enemy has distinct behaviors and attack patterns, requiring different strategies to defeat them.
 Particle system: The environment is enriched with particle effects, providing a more immersive and dynamic visual experience.
-Game Objective
+  
+<h2>Game Objective</h2>
 After an emergency landing on an unknown planet, the protagonist astronaut must find shelter in a cave located at the end of the path. To reach it, the astronaut must overcome a series of challenges, such as platforms, traps, and hostile enemies. Along the way, the player must collect resources like coins and life items to earn points and replenish their energy. The game is divided into multiple levels with increasing difficulty, gradually testing the player's skills.
 
-##Technologies Used
+<h2>Technologies Used</h2>
 Space Adventure 2D was developed using the following technologies:
 
 Unity Engine 3D: A powerful 3D game development engine used in this project to create the environment, implement game logic, and manage object physics.
 C#: A widely used programming language for game development in the Unity Engine. It was used to write scripts that control player behavior, enemies, collectibles, and other game elements.
 
-##Installation and Execution
+<h2>Installation and Execution</h2>
 To run the project, follow the instructions below:
 
 Download the entire project in ZIP format.
@@ -39,8 +40,8 @@ Select the project folder and click "Select Folder" to open the project in Unity
 Wait for Unity to import all the assets and prepare the project.
 After the import is complete, click the "Play" button in the Unity editor to run the game and start playing.
 
-##Contribution
+<h2>Contribution</h2>
 At the moment, we are not accepting external contributions to this project. However, feel free to fork the project and make custom changes for your own use.
 
-##License
+<h2>License</h2>
 This project is licensed under the MIT License.
