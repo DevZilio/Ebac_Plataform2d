@@ -1,7 +1,7 @@
-#Space Adventure 2D
+<h1>Space Adventure 2D</h1>
 
 
-##Description
+<h2>Description</h2>
 Space Adventure 2D is an exciting game currently under development, created as part of my Game Design course, where I am specializing in the art of creating interactive and engaging experiences. The main goal of this project is to create a captivating 2D game by combining game design skills and programming to deliver a unique experience to players.
 
 In this project, the game art was provided by the school, providing a stunning and immersive visual experience. My main contribution focused on carefully organizing the environment art, bringing to life a vibrant world full of challenges. Additionally, I took responsibility for implementing robust object collision physics, ensuring smooth and realistic gameplay.
